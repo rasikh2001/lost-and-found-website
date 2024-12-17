@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Community Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+</head>
+<body>
+
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="row w-100">
+            <div class="col-md-6 mx-auto">
+                <!-- Sign-Up Card -->
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+
+                        <!-- Logo -->
+                        <div class="text-center mb-4">
+                            <img src="logo.svg" alt="Logo" class="logo-image mb-3" style="width: 150px;">
+                        </div>
+
+                        <!-- Form Title -->
+                        <h3 class="text-center mb-4">Create Your Account</h3>
+
+                        <!-- Sign-Up Form -->
+                        <form>
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+
+                            <!-- Username -->
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Choose a username" required>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter a password" required>
+                            </div>
+
+                            <!-- Confirm Password -->
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                                <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign Up</button>
+                            </div>
+                        </form>
+
+                        <!-- Existing Account -->
+                        <div class="text-center mt-3">
+                            <p>Already have an account? <a href="login.html">Log in here</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

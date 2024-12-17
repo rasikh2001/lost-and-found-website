@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Community Center</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Optional external CSS -->
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #f0daac, #FAF3E0, #f0daac);
+        }
+
+        .container {
+            display: flex;
+            width: 95%;
+            max-width: 1400px;
+            height: 700px;
+            box-shadow: 0 8px 16px rgba(196, 193, 193, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Left Section */
+        .login-section {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .login-section h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-section label {
+            font-weight: bold;
+        }
+
+        .login-section input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+        /* Social Links and Create Account Button */
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .create-account-btn {
+            padding: 10px 20px; /* Adjust padding for button size */
+            font-size: 16px;
+            background-color: #42b72a ; /* Green background */
+            color: white; /* White text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 220px;
+            transition: background-color 0.3s ease;
+            width: 200px; /* Makes the button less wide */
+        }
+
+        .create-account-btn:hover {
+            background-color: darkgreen; /* Darker green on hover */
+        }
+
+        /* Right Section */
+        .image-section {
+            flex: 1;
+            background: url("pageforlogin.png") no-repeat center center/cover;
+            position: relative;
+        }
+
+        .image-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section: Login Form -->
+        <div class="login-section">
+            <h1>Welcome Back!</h1>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <div class="form-check">
+                <input type="checkbox" id="show-password" onclick="togglePassword()">
+                <label for="show-password">Show Password</label>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+            <button class="create-account-btn" onclick="window.location.href='sign_up.html'"> Create New Account</button>
+
+            <div class="social-links">
+                <div>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="fb.png" alt="Facebook" class="social-icon">
+                    </a>
+                    <a href="https://www.google.com" target="_blank">
+                        <img src="google.png" alt="Google" class="social-icon">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="insta.png" alt="Instagram" class="social-icon">
+                    </a>
+                </div>
+               
+            </div>
+        </div>
+
+        <!-- Right Section: Image -->
+        <div class="image-section">
+            <div class="overlay">Lost and Found Community Center</div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+</html>

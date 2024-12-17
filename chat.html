@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat & Upload | Lost & Found Community</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.3.0/dist/fullcalendar.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #75b5f9, #d7ecef);
+            font-family: Arial, sans-serif;
+            padding-bottom: 60px; /* Space for footer */
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #calendar {
+            max-width: 600px;
+            margin-top: 30px;
+            height: 500px;
+        }
+
+        #clock {
+            text-align: center;
+            position: fixed;
+            bottom: 50px;
+            width: 100%;
+        }
+
+        #current-time {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .chat-box {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 380px;
+            width: 500px;
+            overflow-y: auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .message {
+            background-color: #e9f7fe;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .message-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .btn-custom {
+            width: 48%;
+            font-size: 1.1rem;
+            padding: 10px;
+        }
+
+        .btn-upload {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+        }
+
+        .btn-send {
+            background-color: #007bff;
+            border: none;
+            color: white;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Lost & Found Community</h1>
+        <a href="HOME_PAGE.html" class="btn btn-secondary">Back to Home</a>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Chat Box Section (Left aligned) -->
+        <div class="chat-section">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Chat Section</h3>
+
+                    <!-- Chat Box for displaying messages -->
+                    <div id="chat-box" class="chat-box"></div>
+
+                    <!-- Message input -->
+                    <textarea id="message-input" class="message-input" placeholder="Type your message..." rows="3"></textarea>
+
+                    <!-- Buttons for send and upload -->
+                    <div class="d-flex justify-content-between">
+                        <button id="send-message" class="btn btn-send btn-custom">Send Message</button>
+                        <button id="upload-image" class="btn btn-upload btn-custom" data-bs-toggle="modal"
+                            data-bs-target="#uploadModal">Upload Image</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Section (Right aligned) -->
+        <div id="calendar"></div>
+    </div>
+
+    <!-- Clock Section (Bottom Center) -->
+    <div id="clock">
+        <h1 id="current-time"></h1>
+    </div>
+
+    <!-- Modal for Image Upload -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">Upload Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="file" id="image-upload" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="upload-image-btn">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Lost & Found Community. All rights reserved.</p>
+    </footer>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.3.0/dist/fullcalendar.min.js"></script>
+
+    <script>
+        // Update clock every second
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            document.getElementById("current-time").textContent = time;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Initialize clock
+
+        // Handle send message button click
+        document.getElementById("send-message").addEventListener("click", function () {
+            const message = document.getElementById("message-input").value;
+            if (message.trim()) {
+                const messageDiv = document.createElement("div");
+                messageDiv.classList.add("message");
+                messageDiv.textContent = message;
+                document.getElementById("chat-box").appendChild(messageDiv);
+                document.getElementById("message-input").value = ""; // Clear input
+            }
+        });
+
+        // Handle image upload modal
+        document.getElementById("upload-image").addEventListener("click", function () {
+            new bootstrap.Modal(document.getElementById('uploadModal')).show();
+        });
+
+        // Handle image upload button click
+        document.getElementById("upload-image-btn").addEventListener("click", function () {
+            const file = document.getElementById("image-upload").files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const imageDiv = document.createElement("div");
+                    imageDiv.classList.add("image-message");
+                    const image = document.createElement("img");
+                    image.src = e.target.result;
+                    image.classList.add("img-fluid");
+                    imageDiv.appendChild(image);
+                    document.getElementById("chat-box").appendChild(imageDiv);
+                    new bootstrap.Modal(document.getElementById('uploadModal')).hide(); // Close modal after upload
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Initialize FullCalendar after DOM is loaded
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+            });
+        });
+    </script>
+
+</body>
+
+</html>
