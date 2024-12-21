@@ -8,139 +8,182 @@
     <link rel="stylesheet" href="home.css"> <!-- Your custom CSS file -->
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="custom-header py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo">
+  
+    <!-- Full-Screen Video Header Section -->
+<header class="custom-header">
+    <div class="video-container">
+        <!-- Video Element -->
+         
+        <video autoplay muted loop id="welcomeVideo">
+            <source src="welcome_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <!-- Content Above the Video -->
+        <div class="container d-flex justify-content-between align-items-center position-relative z-index-2">
+            <!-- Logo -->
+           
                 <h1><img class="logo-image" src="logo.svg" alt="Community Logo"></h1>
-            </div>
+        
+            <!-- Navigation -->
             <nav>
                 <ul class="nav">
-                    <li class="nav-item"><a class="btn btn-primary" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="chat.html">Chat</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Lost & Found</a></li>
+                    <li class="nav-item">
+                        <a class="nav-button" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-button" href="chat.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-button" href="#">Lost & Found</a>
+                    </li>
                 </ul>
             </nav>
+            
+            <!-- Join Button -->
             <div>
                 <a href="sign_up.html">
-                    <button class="btn btn-primary">Join</button>
+                    <button class="nav-button">Join</button>
                 </a>
             </div>
         </div>
-    </header>
-
-    <!-- Welcome Section -->
-    <section class="background-section">
-        <main class="container text-center">
-            <h2>Welcome to Your Lost & Found Community!</h2>
-            <p>Hello, [Username]! We’re glad to have you here. Share your finds and connect with others in our vibrant community.</p>
+         <!-- Main Content Section Above Video -->
+    <main class="container text-center position-relative z-index-2 main-content">
+        <h2>Welcome to Your Lost & Found Community!</h2>
+        <p>Hello,We’re glad to have you here. Share your finds and connect with others in our vibrant community.</p>
+        <div class="mt-4">
             <div class="mt-4">
-                <button class="btn btn-success" title="Post items">Post</button>
-                <button class="btn btn-info" title="Join chat">Chat</button>
+                <button class="btn-about-us" onclick="smoothScrollTo()">About Us</button>
             </div>
+        </div>
+    </main>
+    </div>
+</header>
 
-            <!-- Carousel Section -->
-            <div id="mainCarousel" class="carousel slide mt-4" data-ride="carousel" data-interval="2000">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="slide1.jpg" class="d-block w-100" alt="Image of a lost item">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="slide2.jpg" class="d-block w-100" alt="Image of a found item">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="slide3.jpg" class="d-block w-100" alt="Community members connecting">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#mainCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#mainCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </main>
-    </section>
 
-    <!-- Features Section -->
-    <section class="feature-section py-5">
-        <h2 class="text-center feature_h2">Explore Our Key Features for Enhanced Experience</h2>
+   <!-- Engage Section -->
+<section class="background-section py-0" id="engage-section">
+    <div class="video-background">
+        <video autoplay muted loop id="featureVideo">
+            <source src="galaxy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="container">
+        <div class="engage-header text-center">
+            <h2>Discover How to Connect and Contribute</h2>
+            <p>Our platform empowers users to share their thoughts, join lively discussions, and help reunite lost items with their owners. With easy-to-use features, everyone can contribute to our community.</p>
+        </div>
         <div class="row text-center mt-4">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" id="engage-card-1">
                     <div class="card-body">
-                        <h5 class="card-title">Efficient Session Management</h5>
-                        <p class="card-text">Stay logged in securely while you navigate.</p>
+                        <h4 class="card-title highlight overlay-text">Post Comments and Share Your Thoughts</h4>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" id="engage-card-2">
                     <div class="card-body">
-                        <h5 class="card-title">Secure Logout</h5>
-                        <p class="card-text">Easily log out to protect your account.</p>
+                        <h4 class="card-title highlight overlay-text">Join Real-Time Chats with Other Users</h4>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" id="engage-card-3">
                     <div class="card-body">
-                        <h5 class="card-title">Dynamic Updates</h5>
-                        <p class="card-text">Experience instant updates without refreshing the page.</p>
+                        <h4 class="card-title highlight overlay-text">Easily Upload Lost or Found Items</h4>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Engage Section -->
-    <section class="background-section py-5">
-        <div class="container">
-            <h2 class="text-center">Discover How to Connect and Contribute</h2>
-            <p class="text-center">Our platform empowers users to share their thoughts, join lively discussions, and help reunite lost items with their owners. With easy-to-use features, everyone can contribute to our community.</p>
-            <div class="row text-center mt-4">
-                <div class="col-md-4">
-                    <div class="card" id="engage-card-1">
-                        <div class="card-body">
-                            <h4 class="card-title highlight overlay-text">Post Comments and Share Your Thoughts</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" id="engage-card-2">
-                        <div class="card-body">
-                            <h4 class="card-title highlight overlay-text">Join Real-Time Chats with Other Users</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" id="engage-card-3">
-                        <div class="card-body">
-                            <h4 class="card-title highlight overlay-text">Easily Upload Lost or Found Items</h4>
-                        </div>
-                    </div>
+       <!-- Ready to Join Section -->
+<div class="text-center ready-to-join mt-5">
+    <h2 class="section-title">Ready to Join Our Community?</h2>
+    <p class="section-description">
+        Become part of a platform where helping others is at the heart of everything we do. 
+        Sign up today and start making a difference by posting or finding lost items in our community.
+    </p>
+    <div class="mt-4">
+        <button class="nav-button" id="benefit_button">Benefits</button>
+    </div>
+</div>
+</section>
+
+
+  <!-- Features Section -->
+<section class="feature-section py-3" id="feature_section">
+    <div class="video-background">
+        <video autoplay muted loop id="featureVideo">
+            <source src="galaxy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <h2 class="text-center feature_h2">Explore Our Key Features for Enhanced Experience</h2>
+    <div class="row text-center mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Efficient Session Management</h5>
+                    <p class="card-text">Stay logged in securely while you navigate.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Call-to-Action (CTA) and Footer Section -->
-    <section class="cta-section text-center py-5">
-        <h2 class="section">Ready to Join Our Community?</h2>
-        <p class="section">Become part of a platform where helping others is at the heart of everything we do. Sign up today and start making a difference by posting or finding lost items in our community.</p>
-        <div class="mt-4">
-            <a href="sign_up.html">
-                <button class="btn btn-primary">Join</button>
-            </a>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Secure Logout</h5>
+                    <p class="card-text">Easily log out to protect your account.</p>
+                </div>
+            </div>
         </div>
-        <footer style="margin-top: 20px;">
-            <p>&copy; 2024 Lost & Found Community. All Rights Reserved.</p>
-        </footer>
-    </section>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Dynamic Updates</h5>
+                    <p class="card-text">Experience instant updates without refreshing the page.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer">
 
     
+    <div class="container">
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="#" class="social-icon" title="Facebook">
+                <img src="fb.png" alt="Facebook">
+            </a>
+            <a href="#" class="social-icon" title="Twitter">
+                <img src="twitter.png" alt="Twitter">
+            </a>
+            <a href="#" class="social-icon" title="Instagram">
+                <img src="insta.png" alt="Instagram">
+            </a>
+            <a href="#" class="social-icon" title="LinkedIn">
+                <img src="google.png" alt="LinkedIn">
+            </a>
+        </div>
+
+        <!-- Footer Links -->
+        <ul class="footer-links">
+            <li><a href="#"> Back to Home</a></li>
+            <li><a href="#engage-section">About Us</a></li>
+        </ul>
+
+        <!-- Copyright -->
+        <p>&copy; 2024 Lost & Found Community. All Rights Reserved.</p>
+    </div>
+</footer>
+
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -152,6 +195,40 @@
                 interval: 1000 // Change slide every 2 seconds
             });
         });
+
+        function smoothScrollTo(element, duration) {
+    const start = window.scrollY || window.pageYOffset; // Current scroll position
+    const target = element.offsetTop; // Position of the target element
+    const distance = target - start; // Distance to scroll
+    let startTime = null;
+
+    function scrollStep(timestamp) {
+        if (!startTime) startTime = timestamp; // Store start time
+        const progress = timestamp - startTime; // Time elapsed since start
+        const scrollAmount = Math.min(progress / duration * distance, distance); // Calculate the amount to scroll
+
+        window.scrollTo(0, start + scrollAmount); // Scroll to the calculated position
+
+        if (progress < duration) {
+            requestAnimationFrame(scrollStep); // Continue scrolling until the duration is reached
+        }
+    }
+
+    requestAnimationFrame(scrollStep); // Start the scroll animation
+}
+
+document.querySelector('.btn-about-us').addEventListener('click', function() {
+    const targetSection = document.querySelector('.background-section');
+    smoothScrollTo(targetSection, 1000); // Adjust the duration (in ms) to control scroll speed
+
+});
+
+document.querySelector('#benefit_button').addEventListener('click', function () {
+    const targetSection = document.querySelector('#feature_section'); // Select the Features Section
+    smoothScrollTo(targetSection, 1000); // Smooth scroll with 1000ms duration
+});
+
+
     </script>
 </body>
 </html>

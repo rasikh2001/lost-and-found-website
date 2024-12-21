@@ -8,7 +8,7 @@ body {
 }
 
 h1, h2 {
-    color: #004d99;
+    color: #000;
     font-weight: bold;
 }
 
@@ -25,56 +25,140 @@ p {
     background-color: #0e0c0c;
     color: #fff;
 }
-
-/* Header */
-header {
-    border-bottom: 2px solid #e0e0e0;
-    background-image: url(bg3.jpg);
+/* Logo Styling */
+.logo-image {
+    width: 200px;
+    height: auto;
+    margin: 0 auto 10px;
+    filter: invert(100%) brightness(100%) contrast(100%);
 }
 
-.nav-link {
-    color: #fff;
-    font-weight: bold;
+/* Main Content Section Above Video */
+.main-content {
+    position: absolute;
+    top: 30%; /* Move content to the vertical center */
+    left: 30%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    z-index: 2;
+    color: white; /* Ensure text is readable on top of the video */
+    text-align: center;
+    width: 100%;
+}
+/* Video container to cover the full width and height */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.nav-link:hover {
-    color: #0056b3;
+#welcomeVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
-.btn-primary {
-    background-color: #0056b3;
+/* Overlay shadow effect */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Header Section */
+header .container {
+    position: relative;
+    z-index: 2;
+    color: white;
 }
 
 /* Main Section */
 main {
     position: relative;
+    text-align: center;
     padding: 50px 0;
+    z-index: 2;
+    color: white;
 }
 
+/* Main Heading */
+main h2 {
+    font-size: 50px;
+    color: #F5F5F5;
+}
+
+main p {
+    font-size: 32px;
+    color: #F5F5F5;
+}
+
+
+
+
+
+html {
+    scroll-behavior:auto /* Smooth scrolling for all links */
+}
+/* About Us Button Style */
+.btn-about-us {
+    background-color: #6c757d; /* Greyish color */
+    color: #fff; /* White text */
+    font-size: 18px; /* Increase font size */
+    padding: 12px 20px; /* Add padding to increase button size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.btn-about-us:hover {
+    background-color: #5a6268; /* Darker grey when hovered */
+    cursor: pointer;
+}
+
+/* Navigation Button Style */
+.nav-button {
+    background-color: #6c757d; /* Greyish color */
+    color: #fff; /* White text */
+    font-size: 18px; /* Increase font size */
+    padding: 12px 20px; /* Add padding to increase button size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure proper spacing */
+    text-align: center; /* Center the text */
+    margin: 0 10px; /* Add horizontal spacing between buttons */
+}
+
+.nav-button:hover {
+    background-color: #5a6268; /* Darker grey when hovered */
+    color: #ffffff;
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Background Section */
 .background-section {
-    background-image: url('test_bg.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; /* Adjusted for clarity */
+    background-repeat: no-repeat;
 }
 
 .background-section p {
     color: #000;
     font-weight: bold;
-}
-
-#mainCarousel img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-}
-
-main h2 {
-    font-size: 32px;
-}
-
-main p {
-    font-size: 18px;
 }
 
 /* Cards */
@@ -92,31 +176,150 @@ main p {
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card-body {
-    margin-top: auto;
-}
-
 .card-body h5 {
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-/* Features Section */
+/* Feature Section */
 .feature-section {
+    position: relative;
     padding: 30px;
-    background-image: url('bg3.jpg');
+    color: #fff; /* Text color for readability */
+    z-index: 1; /* Ensures content is above the video */
+    min-height: 590px; /* Set a minimum height for the section */
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
 }
 
+/* Video Background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Places the video behind the content */
+}
+
+#featureVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the section */
+    opacity: 0.9; /* Reduced opacity to allow the video to show through more clearly */
+}
+
+/* Feature Section Heading */
 .feature_h2 {
     color: #e0e0e0;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: xx-large;
+    position: relative;
+    z-index: 2; /* Keeps the heading above the video */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: adds a shadow to the text for better contrast */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+    text-align: center;
 }
 
-.feature-section .card {
-    border-radius: 50px;
+/* Feature Section Paragraphs */
+.feature-section p {
+    color: #e0e0e0; /* Light grey for better visibility on the dark background */
+    font-size: x-large; /* Maintain a readable font size */
+    font-weight: bold; /* Slightly bold for better emphasis */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds shadow for better readability on video background */
+    margin-top: 10px; /* Adds spacing for a clean layout */
+    margin-bottom: 0; /* Ensures consistency with spacing */
+    line-height: 1.5; /* Improves readability */
 }
+
+
+/* Row of Cards */
+.feature-section .row {
+    display: flex; /* Flexbox for card alignment */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Add spacing between columns */
+    flex-wrap: wrap; /* Ensure responsiveness */
+    width: 100%; /* Make the row take full width */
+    max-width: 1200px; /* Limit the row's width */
+}
+
+/* Cards */
+.feature-section .card {
+    width: 350px; /* Adjusted card width for better visibility */
+    height: 250px; /* Adjusted card height */
+    border-radius: 20px; /* Adjusted border radius for better appearance */
+    background-color: rgba(0, 0, 0, 0.4); /* Less transparency to make cards more visible */
+    color: #fff; /* Ensures card text is white */
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    display: flex; /* Flexbox for card content */
+    flex-direction: column; /* Stack title and text vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+/* Hover effect on cards */
+.feature-section .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Optional: If you want to add a subtle dark overlay on the video */
+.video-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Slight dark overlay to improve readability */
+    z-index: 1;
+}
+
+
+
 
 /* Engage Section */
+#engage-section {
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 254, 254, 0.9),
+        rgba(201, 201, 201, 0.9),
+        rgba(184, 184, 184, 0.8), 
+        rgba(157, 157, 157, 0.8),
+        rgba(110, 110, 110, 0.8),
+        rgba(72, 72, 72, 0.8),
+        rgba(53, 53, 53, 0.8),
+        rgba(33, 33, 33, 0.8),
+        rgba(0, 0, 0, 0.8)
+    ); /* Simple greyish gradient */
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+}
+
+/* Video Background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#featureVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1; /* Ensure content is visible over the video */
+}
+
+/* Overlay Text on Cards */
 .overlay-text {
     position: absolute;
     bottom: 20px;
@@ -128,51 +331,113 @@ main p {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
 }
 
+.card:hover .overlay-text {
+    opacity: 1; /* Make text visible on hover */
+}
+
+.card {
+    position: relative;
+}
+
+/* Cards */
 #engage-card-1, #engage-card-2, #engage-card-3 {
     background-size: cover;
     background-position: center;
     height: 400px;
 }
 
-#engage-card-1:hover h4, 
-#engage-card-2:hover h4, 
-#engage-card-3:hover h4 {
-    opacity: 1;
+#engage-section p {
+font-size: large;
 }
 
 #engage-card-1 { background-image: url('comment-bg.jpg'); }
 #engage-card-2 { background-image: url('chat-bg.jpg'); }
 #engage-card-3 { background-image: url('upload-bg.jpg'); }
 
-/* Logo */
-.logo-image {
-    width: 100px;
-    margin: 0 auto 10px;
-    filter: invert(41%) sepia(61%) saturate(7470%) hue-rotate(212deg) brightness(95%) contrast(101%);
+/* Ready to Join Section */
+.ready-to-join {
+    margin-top: 50px;
+    color: white;
 }
 
-/* Call-to-Action Section */
-.cta-section {
-    background-image: url('bg3.jpg');
-    text-align: center;
+.ready-to-join .section-title {
+    font-size: 2.5rem;
+    color: #fcfcfc;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.cta-section h2, .cta-section p, .cta-section button {
-    text-align: center;
-    color: #fff;
+.ready-to-join .section-description {
+    font-size: 1.2rem;
+    color: #fcfcfc;
+
+    line-height: 1.6;
+    margin-bottom: 30px;
 }
+
+
 
 /* Footer */
 .footer {
     background-color: #000;
     color: #fff;
+    padding: 30px 0;
     text-align: center;
-    padding: 20px 0;
+    border-top: 2px solid #cacaca;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer .social-links {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer .social-icon img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-icon:hover img {
+    transform: scale(1.2);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-links li {
+    display: inline;
+}
+
+.footer-links a {
+    color: #fcfcfc;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
 }
 
 .footer p {
-    font-weight: bold;
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin: 0;
 }
+
