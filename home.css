@@ -33,17 +33,18 @@ p {
     filter: invert(100%) brightness(100%) contrast(100%);
 }
 
-/* Main Content Section Above Video */
 .main-content {
     position: absolute;
-    top: 30%; /* Move content to the vertical center */
-    left: 30%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for exact centering */
-    z-index: 2;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-75%, -10%); /* Adjust for exact centering */
+    z-index: 2; /* Ensure it stays above the video */
     color: white; /* Ensure text is readable on top of the video */
-    text-align: center;
-    width: 100%;
+    text-align: center; /* Center align the text */
+    width: 80%; /* Adjust width to fit within the container */
+    max-width: 1200px; /* Optional: Limit max width for better readability */
 }
+
 /* Video container to cover the full width and height */
 .video-container {
     position: relative;
@@ -79,6 +80,52 @@ header .container {
     z-index: 2;
     color: white;
 }
+.glass-nav {
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect for glass look */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 10px; /* Rounded corners for style */
+    padding: 5px 30px; /* Space around content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    z-index: 10; /* Ensure it stays above the video */
+    position: absolute; /* Positioned relative to the viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Start at the left edge */
+    width: 100vw; /* Full width of the viewport */
+    display: flex; /* Ensure child elements are aligned */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and buttons */
+    overflow: hidden; /* Hide the animation outside the navbar */
+}
+
+.glass-nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start animation off-screen */
+    width: 200%; /* Ensure the gradient covers the full width */
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+    ); /* Light gradient effect */
+    animation: lightAnimation 3s linear infinite; /* Animation properties */
+    pointer-events: none; /* Ensure it doesn't interfere with interactions */
+    z-index: 1; /* Below the content */
+}
+
+@keyframes lightAnimation {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+
 
 /* Main Section */
 main {
@@ -123,7 +170,6 @@ html {
     cursor: pointer;
 }
 
-/* Navigation Button Style */
 .nav-button {
     background-color: #6c757d; /* Greyish color */
     color: #fff; /* White text */
@@ -136,6 +182,8 @@ html {
     display: inline-block; /* Ensure proper spacing */
     text-align: center; /* Center the text */
     margin: 0 10px; /* Add horizontal spacing between buttons */
+    z-index: 11; /* Ensure buttons are clickable */
+    position: relative; /* Create a new stacking context */
 }
 
 .nav-button:hover {
@@ -143,6 +191,7 @@ html {
     color: #ffffff;
     cursor: pointer; /* Change cursor to pointer */
 }
+
 
 /* Background Section */
 .background-section {
