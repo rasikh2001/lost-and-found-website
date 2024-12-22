@@ -436,12 +436,28 @@ font-size: large;
     padding: 30px 0;
     text-align: center;
     border-top: 2px solid #cacaca;
+    position: relative; /* For positioning the light effect */
+    overflow: hidden; /* Hide the moving light outside the footer */
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start from the left side */
+    width: 40%; /* Light width */
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); /* Soft glowing effect */
+    animation: lightAnimation 3s ease-in-out infinite; /* Slower and smoother animation */
+    z-index: 1; /* Ensure the light is above the background but below content */
 }
 
 .footer .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative; /* To bring content above the animated light */
+    z-index: 2;
 }
 
 .footer .social-links {
@@ -490,3 +506,15 @@ font-size: large;
     margin: 0;
 }
 
+/* Light animation keyframes */
+@keyframes lightAnimation {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
